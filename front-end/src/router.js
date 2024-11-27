@@ -5,6 +5,8 @@ import New from './views/New.vue';
 import Show from './views/Show.vue';
 import Edit from './views/Edit.vue';
 import Test from './views/Test.vue';
+import Search from './views/Search.vue';
+import Halh from './views/Halh.vue'
 
 Vue.use(Router);
 
@@ -41,7 +43,20 @@ export default new Router({
         path:'/test',
         name: 'test',
         component: Test
+    },
+    {
+        path:'/search',
+        name:'search',
+        component: Search
+
+    },
+    {
+        path:'/halh',
+        name:'halh',
+        component: Halh
+
     }
+    
 ]
 
 });
