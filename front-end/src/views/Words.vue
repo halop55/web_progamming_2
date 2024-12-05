@@ -2,6 +2,19 @@
     <div>
         <h1>Words</h1>
         <h2>Total of words in list: {{ this.words.length }}</h2>
+
+        <td><input type="text" style="resize: none" cols="20" rows="1" name="description" v-model="input_word"></input> </td>
+        <td><Button @click="onSearching"> Search</Button></td>
+        <td></td>
+
+
+
+
+
+
+
+
+        
         <!--  v-if="words.length !=0" -->
         <table id = "words" class = "ui celled compact table" >
         <thead>
@@ -36,6 +49,7 @@
 <script>
 import {api} from '../helpers/helpers';
 
+
 export default{
     name: 'words',
     data(){
@@ -58,5 +72,40 @@ export default{
         console.log(this.words)
     }
     
+};
+</script>
+
+
+<script>
+import {api} from '../helpers/helpers';
+
+export default{
+    name: 'Search',
+    data(){
+        return{
+            words:[],
+            input_word:'',
+            searching:[]
+           
+        };
+    },
+  
+    async mounted(){
+        this.words = await api.getWords();
+        console.log(this.words);
+      
+    },
+    methods:{
+        onSearching: async function () {
+            var input_word_local = this.input_word.trim();
+            if(input_word_local !==''){
+                this.words = await api.searchWord(input_word_local);
+                // console.log('Search result:',this.words);
+            } else{
+                this.words = await api.getWords()
+            }
+        }
+    }
+   
 };
 </script>

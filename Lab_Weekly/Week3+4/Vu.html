@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="" UTF-8>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" class="product-info">
+
+        <product ></product>
+        <product ></product>
+        <product ></product>
+
+
+        <!--task 2.7-->
+          <h1>{{ title }}</h1>  
+        
+        <!--task1-->
+        <!-- <h1>{{ product }}</h1> -->
+        {{ message }}
+        <p> {{description}}</p><!--task1.1 challenge-->
+        <h2></h2>
+
+        <div><a v-bind:href="anchor"> Link for vue </a></div> <!--task1.2 challenge-->
+
+
+        <div class="product-image">
+
+            <img v-bind:src="image" v-bind:alt="altText" />
+        </div>
+        <!-- <p v-if="inventory > 10">In Stock</p>
+        <p v-else-if="inventory <= 10 && inventory">Almost sold out!</p> -->
+
+        <!-- <p v-else>Out Stock</p> -->
+
+        <span v-if="inventory > 10">On Sale! </span><!--task1.3-->
+        <span v-else-if="inventory <= 10 && inventory">Almost sold out!</span><!--task1.3 challenge-->
+        <span v-else>Out Stock</span><!--task1.3challenge-->
+ 
+        <ul >
+            <li v-for="detail in details">{{detail}}</li>
+        </ul>
+
+        <!-- <div v-for="variant in variants" :key="variant.variantId"  >
+            <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
+        </div> -->
+
+        <ul >
+            <li v-for="detailsize in detailssize">{{detailsize}}</li> <!--task1.4challenge-->
+        </ul>
+        <!--task2-->
+        <div class="cart"><p>Cart({{cart}})</p></div>
+        <!-- <button v-on:click="cart +=1"> Add to cart</button> -->
+
+        <!-- <button v-on:click="addToCart"> Add to cart</button> -->
+        <br/>
+        <button v-on:click="removeInCart"> Remove in cart</button><!--task2.5challenge-->
+    <!--task 1-->
+        <!-- <div class="color-box"
+         v-for="variant in variants" :key="variant.variantId" :style="{backgroundColor: variant.variantColor}" 
+             @mouseover="updateProduct(variant.variantImage)" >
+        </div> -->
+
+<!--task2.7-->
+        <div class="color-box"
+        v-for="(variant, index) in variants" :key="variant.variantId" :style="{backgroundColor: variant.variantColor}" 
+            @mouseover="updateProduct(index)" >
+       </div>
+        <button 
+        v-on:click="addToCart"
+        :disabled="!inStock"
+        :class="{disabledButton:!inStock}"
+        > Add to cart</button>
+       <div class ="outStock"><p v-if="!inStock" >Out Stock</p> </div><!--task2.6challenge-->
+    
+       
+    </div>
+    
+    <script src="VUE.js"></script>
+</body>
+
+</html>

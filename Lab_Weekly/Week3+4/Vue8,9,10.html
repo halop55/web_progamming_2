@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+    <meta charset="" UTF-8>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="nav-bar"></div>
+    <div id="app" class="product-info">
+        <div class="cart">
+            <p>Cart({{cart.length}})</p>       
+        </div> 
+          
+        <product :premium="premium" @add-to-cart="updateCart" @remove-in-cart="removeInCart"></product>
+
+        
+    </div>
+    <script src="VUE.js"></script>
+
+</body>
+
+</html>

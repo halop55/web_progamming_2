@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>This is a heading</h1>
+ 
+<p>Enter height</p>
+<input type = "text" id = "height">
+<input type = "text" id = "length">
+<input type = "text" id = "width">
+<br></br>
+<button onclick="doCalC()">Calulate area</button>
+<p id="areaCalc"></p>
+<script>
+    function calculateRectangArea(aWidth,aheight,alength ){let area=aWidth*aheight*alength;return area;}
+    function doCalC(){
+        let neWidth= document.getElementById("width").value
+        let neHeight= document.getElementById("height").value
+        let neLength= document.getElementById("length").value
+        let neArea= calculateRectangArea(neWidth,neHeight,neLength)
+        let n = neArea.toFixed(2);
+        document.getElementById("areaCalc").innerHTML+="the area of retagnle:"+
+neWidth+ "by"+neHeight+ "by"+ neLength+ "is :" + n   + "<br>"}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
